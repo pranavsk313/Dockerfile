@@ -1,6 +1,6 @@
 FROM httpd:2.4
 
-MAINTAINER Pranav <Pranav@gmail.com>
+LABEL MAINTAINER Pranav <Pranav@gmail.com>
 
 LABEL description="Install HTTPD NOW"
 
