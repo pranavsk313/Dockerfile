@@ -1,15 +1,9 @@
-FROM centor:7
+FROM httpd:2.4
 
- MAINTAINER Pranav Pranav@gmail.com
+MAINTAINER Pranav <Pranav@gmail.com>
 
- LABEL Install HTTPD NOW
+LABEL description="Install HTTPD NOW"
 
-RUN yum -y update && \
-    yum -y install httpd && \
-    yum clean all
-
-RUN echo "hello this is Docker Test file" > /var/www/html/index.html
+RUN echo "hello this is Docker Test file" > /usr/local/apache2/htdocs/index.html
 
 EXPOSE 80
-
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
