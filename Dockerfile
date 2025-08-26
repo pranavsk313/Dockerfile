@@ -1,13 +1,15 @@
-FROM docker.io/centos/systemd
+FROM centor:7
 
  MAINTAINER Pranav Pranav@gmail.com
 
  LABEL Install HTTPD NOW
 
- RUN yum -y install httpd
+RUN yum -y update && \
+    yum -y install httpd && \
+    yum clean all
 
- RUN echo "hello this is Docker Test file" > /var/www/html/index.html
+RUN echo "hello this is Docker Test file" > /var/www/html/index.html
 
- EXPOSE 80
+EXPOSE 80
 
- CMD [ "httpd", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
